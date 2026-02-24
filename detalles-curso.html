@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Curso | AcademyC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/png" href="assets/img/linux_32.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo-area"><a href="index.html" class="brand"><span class="logo-icon"><i class="fas fa-graduation-cap"></i></span><span class="logo-text">AcademyC</span></a></div>
+            <nav class="nav-links" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Miembro <i class="fas fa-chevron-down"></i></a><div class="dropdown-content"></div></li>
+                </ul>
+            </nav>
+            <div class="nav-auth" id="nav-auth">
+                <button class="theme-toggle" id="theme-toggle" title="Cambiar modo"><i class="fas fa-moon"></i></button>
+                <div id="auth-buttons" style="display: flex; gap: 15px;">
+                    <a href="iniciarsesion.html" class="btn btn-outline">Log in</a>
+                    <a href="registrarse.html" class="btn btn-primary">Únete gratis</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <section class="course-detail-header">
+        <div class="container">
+            <span class="course-badge" id="c-tag">CATEGORÍA</span>
+            <h1 id="c-title" style="font-size: 48px; font-weight: 800; margin-bottom: 20px;">Título del Curso</h1>
+            <p id="c-desc-short" style="font-size: 20px; opacity: 0.8; max-width: 800px;">Descripción corta del curso.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="detail-grid">
+            <div class="main-content">
+                <div class="content-box">
+                    <h2 class="section-title">¿Qué aprenderás?</h2>
+                    <div id="c-curriculum">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                </div>
+                <div class="content-box">
+                    <h2 class="section-title">Descripción del Experto</h2>
+                    <p id="c-full-desc" style="text-align: justify;"></p>
+                </div>
+
+                <!-- Nueva Sección de Invitación Directa -->
+                <div class="content-box auth-only-hidden" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; text-align: center; padding: 60px 40px;">
+                    <h2 style="color: white; font-size: 32px; font-weight: 800; margin-bottom: 15px;">¡No te quedes atrás!</h2>
+                    <p style="font-size: 18px; opacity: 0.9; margin-bottom: 30px;">Únete a AcademyC hoy mismo y desbloquea el acceso completo a este curso y a toda nuestra biblioteca técnica. El conocimiento es tu mejor inversión.</p>
+                    <a href="precios.html" class="btn" style="background: white; color: var(--primary); padding: 18px 40px; font-size: 18px; font-weight: 800;">¡Suscribirme Ahora!</a>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="content-box sidebar-card" style="border: 2px solid var(--primary);">
+                    <img id="c-img" src="" alt="Curso" style="border-radius: 12px; margin-bottom: 20px; width: 100%;">
+                    <span class="price-tag">¡Acceso Total!</span>
+                    <p style="margin-bottom: 25px; font-weight: 700; font-size: 18px;">Empieza a aprender hoy mismo por solo $9.99/mes.</p>
+                    <a href="precios.html" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 16px;">Ver Planes y Precios</a>
+                    <div style="margin-top: 20px; font-size: 14px; color: var(--text-muted);">
+                        <i class="fas fa-certificate"></i> Incluye Certificado de Finalización
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AcademyC</h3>
+                <p>Plataforma líder en educación tecnológica independiente. Formamos los expertos del mañana.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/ieharo1"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Planes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="politica.html">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><strong>Isaac Esteban Haro Torres</strong></p>
+                <p>zackharo1@gmail.com</p>
+                <p>098805517</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AcademyC - Desarrollado por Isaac Esteban Haro Torres. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+    <script>
+        const courseData = {
+            'hacking': {
+                tag: 'Seguridad',
+                title: 'Introducción al Hacking Ético',
+                short: 'Conviértete en un experto en ciberseguridad defensiva y ofensiva.',
+                full: 'Este curso está diseñado para llevarte desde los conceptos más básicos hasta técnicas avanzadas de pentesting. Aprenderás a identificar vulnerabilidades en sistemas reales y a reportarlas profesionalmente. El enfoque es 100% práctico, utilizando laboratorios controlados y herramientas de estándar industrial como Kali Linux, Metasploit y Burp Suite.',
+                img: 'assets/img/introduccionhackingetico.jpg',
+                items: ['Fundamentos de Redes y Protocolos', 'Reconocimiento y Footprinting', 'Escaneo de Puertos y Servicios', 'Explotación de Vulnerabilidades Web', 'Post-Explotación y Pivoting']
+            },
+            'python': {
+                tag: 'Desarrollo',
+                title: 'Python 3: De Cero a Maestro',
+                short: 'Domina el lenguaje más versátil del mundo desde las bases hasta IA.',
+                full: 'Python es el lenguaje número uno para ciencia de datos, inteligencia artificial y automatización. En este curso aprenderás la sintaxis moderna de Python 3, programación orientada a objetos, manejo de excepciones y cómo interactuar con APIs externas. Incluye proyectos reales para crear tus propias herramientas.',
+                img: 'assets/img/pythoncurso.jpg',
+                items: ['Variables y Tipos de Datos', 'Control de Flujo y Bucles', 'Funciones y Módulos', 'Programación Orientada a Objetos', 'Manejo de Archivos y JSON']
+            },
+            'linux': {
+                tag: 'Sistemas',
+                title: 'Linux: De Noob a Pro en 9 horas',
+                short: 'Domina el sistema operativo que mueve la nube y los servidores.',
+                full: 'No puedes ser un experto en tecnología sin dominar Linux. Este curso intensivo te enseña a manejar la terminal como un profesional. Aprenderás administración de usuarios, permisos avanzados, gestión de discos, redes y despliegue de servicios como servidores web y bases de datos.',
+                img: 'assets/img/Linuxdenoobapro.jpg',
+                items: ['La Terminal y Comandos Básicos', 'Gestión de Usuarios y Grupos', 'Permisos y Propiedad de Archivos', 'Administración de Procesos', 'Scripts en Bash para Automatización']
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const courseId = params.get('curso') || 'hacking';
+            const data = courseData[courseId];
+
+            if (data) {
+                document.getElementById('c-tag').innerText = data.tag;
+                document.getElementById('c-title').innerText = data.title;
+                document.getElementById('c-desc-short').innerText = data.short;
+                document.getElementById('c-full-desc').innerText = data.full;
+                document.getElementById('c-img').src = data.img;
+
+                const curriculum = document.getElementById('c-curriculum');
+                data.items.forEach(item => {
+                    curriculum.innerHTML += `
+                        <div class="curriculum-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>${item}</span>
+                        </div>
+                    `;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

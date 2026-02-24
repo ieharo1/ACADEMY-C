@@ -1,185 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
-    <link rel="icon" href="../assets/linux.ico">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" media="(max-width:753px)"href="../css/style2.css">
-    <link rel="stylesheet" media="(max-width:525px)"href="../css/style3.css">
-    <link rel="stylesheet" media="(max-width:400px)"href="../css/style4.css">
-    <script src="https://kit.fontawesome.com/bc9031ede6.js" crossorigin="anonymous"></script>
+    <title>Catálogo de Cursos | AcademyC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/png" href="assets/img/linux_32.png">
 </head>
-
 <body>
-    <!--HEADER-->
-    <header class="header">
-        <!--BARRA PROMOCIONAL-->
-        <div class="barra-promocional" id="barra-promocional"></div>
-        <!--MENU-->
-        <div class="ancho" id="ancho">
-            <!--LOGO-->
-            <div class="logo"id="logo"> </div>
-            <!--TITULO-->
-            <div class="titulo"id="titulo" ></div>
-            <!--BARRA DE NAVEGACION-->
-            <nav class="barra-navegacion" id="barra-navegacion">
-                <ul id=ul>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo-area">
+                <a href="index.html" class="brand">
+                    <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="logo-text">AcademyC</span>
+                </a>
+            </div>
+            <nav class="nav-links" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cursos.html" class="active">Cursos</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Miembro <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="registrarse.html">Registrarse</a>
+                            <a href="iniciarsesion.html">Iniciar Sesión</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
-            <!--ESPACIO-->
-            <div class="espacio2"></div>
-        </div>   
-        <!--MENU-RESPONSIVE-->
-        <!--BARRA DE HAMBURGUESA-->
-        <nav id="menuicono">
-            <img src="https://img.icons8.com/ios-filled/50/000000/menu-2.png" width="20" height="20" id="menu-img">
-        </nav>
-        
+            <div class="nav-auth" id="nav-auth">
+                <button class="theme-toggle" id="theme-toggle" title="Cambiar modo">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div id="auth-buttons" style="display: flex; gap: 15px;">
+                    <a href="iniciarsesion.html" class="btn btn-outline">Log in</a>
+                    <a href="registrarse.html" class="btn btn-primary">Únete gratis</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
-    <!--BARRA DE NAVEGACION RESPONSIVE-->
-    <nav id="menuprincipal">
-        <div id='divresponsive'>  
-            <ul id="ulresponsive"></ul>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Catálogo de Expertos</h1>
+            <p>Formación técnica de alto nivel diseñada para los desafíos del mundo real.</p>
         </div>
-    </nav>
-    
-    <div id="particles-js">
-        <div id="ancho-letras">
-            <h1><u>APRENDE ALGO NUEVO CADA DIA</u></h1>
-            <p>Sin salir de tu casa, cancela cuando quieras</p>
-            <br>
-            <a href="precios.html">
-                <button id="suscribete">!Suscribete!</button>
-            </a>
-            <a href="precios.html">
-                <button id="suscribete">Saber más</button>
-            </a>
+    </section>
+
+    <main class="container" style="padding: 60px 20px;">
+        <div class="course-grid">
+            <!-- Curso 1 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/introduccionhackingetico.jpg" alt="Hacking"></div>
+                <div class="card-body">
+                    <span class="card-tag">Seguridad</span>
+                    <h3>Introducción al Hacking Ético</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        Conviértete en un experto en ciberseguridad defensiva y ofensiva. Este curso cubre desde el escaneo de vulnerabilidades hasta la explotación controlada de sistemas, siguiendo estándares éticos internacionales. Aprenderás a pensar como un atacante para proteger infraestructuras críticas.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">AcademyC Exclusive</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Curso 2 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/hackingderedesinalambricas.jpg" alt="WiFi Hacking"></div>
+                <div class="card-body">
+                    <span class="card-tag">Seguridad</span>
+                    <h3>Hacking de Redes Inalámbricas</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        Domina el aire. Aprende a auditar la seguridad de redes WiFi (WPA2/WPA3), identificar dispositivos vulnerables y ejecutar ataques de desautenticación y gemelo malvado. Un curso práctico con herramientas de vanguardia para asegurar la integridad de las comunicaciones inalámbricas.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">Marcelo (s4vitar)</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Curso 3 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/labibliadelmantenimiento.jpg" alt="Mantenimiento PC"></div>
+                <div class="card-body">
+                    <span class="card-tag">Hardware</span>
+                    <h3>La Biblia del Mantenimiento PC</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        El manual definitivo para el soporte técnico. Desde el diagnóstico profundo de hardware hasta la optimización avanzada del software. Aprenderás técnicas de limpieza profesional, reparación de componentes, gestión térmica y solución de conflictos críticos del sistema.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">Vito Modder</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Curso 4 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/creatuprimerrobot.jpg" alt="Robótica"></div>
+                <div class="card-body">
+                    <span class="card-tag">Hardware</span>
+                    <h3>Crea tu primer Robot con Arduino</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        Entra en el mundo de la robótica y la electrónica. Aprenderás a programar microcontroladores Arduino, usar sensores de proximidad y controlar motores para dar vida a tus propias creaciones autónomas desde cero.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">Edgar Pons</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Curso 5 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/desarrollofullstack.jpg" alt="Full Stack"></div>
+                <div class="card-body">
+                    <span class="card-tag">Desarrollo</span>
+                    <h3>Full Stack Profesional: Laravel & VueJS</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        Construye aplicaciones web modernas y escalables. Domina el backend con Laravel y el frontend reactivo con VueJS. Aprenderás arquitectura de APIs, gestión de bases de datos y despliegue profesional.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">Antonio Sarosi</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Curso 6 -->
+            <article class="course-card">
+                <div class="card-img"><img src="assets/img/Linuxdenoobapro.jpg" alt="Linux"></div>
+                <div class="card-body">
+                    <span class="card-tag">Sistemas</span>
+                    <h3>Linux: De Noob a Pro en 9 horas</h3>
+                    <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                        Domina el sistema operativo de los servidores. Aprende administración de terminal, gestión de permisos, automatización con scripts bash y configuración de entornos de red profesionales.
+                    </p>
+                    <div class="card-footer">
+                        <span class="instructor" style="color: var(--primary);">AcademyC Team</span>
+                        <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
         </div>
-    </div>
-    <main>
-        <div>
-            <br>
-            <h1>Cursos</h1>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Introducción Al Hacking Ético</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - s4vitar (Marcelo)</h3>
-                        <figure>
-                            <img src="../assets/introduccionhackingetico.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Hacking de Redes Inalámbricas (Wi-Fi)</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - s4vitar (Marcelo)</h3>
-                        <figure>
-                            <img src="../assets/hackingderedesinalambricas.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>La Biblia del Mantenimiento PC</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - Vito Modder</h3>
-                        <figure>
-                            <img src="../assets/labibliadelmantenimiento.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Crea tu primer Robot con Arduino</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - Edgar Pons</h3>
-                        <figure>
-                            <img src="../assets/creatuprimerrobot.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Cómo hacer un Low Spec</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - Alex LowSpecGamer</h3>
-                        <figure>
-                            <img src="../assets/comohacerunlowspec.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Hacking de Radiofrecuencia</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - s4vitar (Marcelo)</h3>
-                        <figure>
-                            <img src="../assets/hackingderadiofrecuencia.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <section id="cursos-cursos">
-                <a href="miembro.html">
-                    <article>
-                        <p>Desarrollo Full Stack con Laravel & VueJS</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber - Antonio Sarosi</h3>
-                        <figure>
-                            <img src="../assets/desarrollofullstack.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            
-        </div>        
     </main>
-    <footer class="footer" id="footer">
-        <div class="container" id="container">
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AcademyC</h3>
+                <p>Plataforma líder en educación tecnológica independiente. Formamos los expertos del mañana.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/ieharo1"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Planes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="politica.html">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><strong>Isaac Esteban Haro Torres</strong></p>
+                <p>zackharo1@gmail.com</p>
+                <p>098805517</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AcademyC - Desarrollado por Isaac Esteban Haro Torres. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!--SCRIPT MENU-->
-    <script src="../assets/index.js"></script>
-    <script src="../assets/script.js"></script>
-    <script src="../assets/particles.js"></script>
-    <script src="../assets/app.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
+

@@ -1,406 +1,815 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" media="(max-width:753px)"href="../css/style2.css">
-    <link rel="stylesheet" media="(max-width:525px)"href="../css/style3.css">
-    <link rel="stylesheet" media="(max-width:400px)"href="../css/style4.css">
-    <script src="https://kit.fontawesome.com/bc9031ede6.js" crossorigin="anonymous"></script>
-    <script>
-        var isCreated = false;
-
-        function listeners(){
-            const selectElement = document.getElementById('num1');
-
-            selectElement.addEventListener('change', (event) => {
-                var num3 = document.getElementById('num3');
-                var num1 = document.getElementById('num1');
-                num3.value = num1.value;
-            });
-
-            const selectElement1 = document.getElementById('num2');
-
-            selectElement1.addEventListener('change', (event) => {
-                var num4 = document.getElementById('num4');
-                var num2 = document.getElementById('num2');
-                num4.value = num2.value;
-            });
-        }
-
-        function crearMatriz1(){
-            var filas = document.getElementById('num1');
-            var columnas = document.getElementById('num2');
-            var filas1 = document.getElementById('num3');
-            var columnas1 = document.getElementById('num4');
-            var id = 1;
-
-            if(isCreated){
-                alert('Recarga la página para generar una nueva matriz');
-            }else if(columnas.value<=0 || filas.value<=0){
-                alert('Ingresa un número válido de filas y columnas');
-            }else{
-                const matriz1 = document.getElementById('matriz1');
-                const matriz2 = document.getElementById('matriz2');
-
-
-                var contenedor2 = document.getElementById('contenedor2');
-                contenedor2.setAttribute('class','contenedor');
-
-                for(var j=0; j<filas.value; j++){
-                    var span = document.createElement('span');
-                    for(var i=0; i<columnas.value; i++){
-                        var input = document.createElement('input'); 
-                        input.setAttribute('type','number');
-                        input.setAttribute('id','valor'+id);
-                        id++;
-                        span.appendChild(input);
-                    }
-                    matriz1.appendChild(span); 
-                }
-
-                id=1;
-                for(var j=0; j<filas1.value; j++){
-                    var span = document.createElement('span');
-                    for(var i=0; i<columnas1.value; i++){
-                        var input = document.createElement('input'); 
-                        input.setAttribute('type','number');
-                        input.setAttribute('id','val'+id);
-                        id++;
-                        span.appendChild(input);
-                    }
-                    matriz2.appendChild(span); 
-                }
-
-                matriz1.appendChild(document.createElement('br'));
-
-                var sumar = document.createElement('button');
-                var restar = document.createElement('button');
-                var multiplicar = document.createElement('button');
-                sumar.setAttribute('onClick', 'sumarMatrices()');
-                sumar.textContent = "Sumar";
-
-                restar.textContent = "Restar";
-                restar.setAttribute('onClick', 'restarMatrices()');
-
-                multiplicar.setAttribute('onClick','multiplicarMatrices()');
-                multiplicar.textContent = "Multiplicar";
-
-                matriz1.appendChild(sumar);
-                matriz1.appendChild(restar);
-                matriz1.appendChild(multiplicar);
-                isCreated = true;
-            }
-        }
-
-
-        function sumarMatrices(){
-            var matriz1 = [];
-            var matriz2 = [];
-            const matrizResultado = document.getElementById('resultado');
-            
-
-
-            var filas = document.getElementById('num1');
-            var columnas = document.getElementById('num2');
-            var filas1 = document.getElementById('num3');
-            var columnas1 = document.getElementById('num4');
-            var id = 1;
-
-            if(filas.value!=filas1.value || columnas.value!=columnas1.value){
-                alert('La cantidad de filas y columnas es diferente');
-            } else{
-                var titulo = document.createElement('h3');
-                titulo.textContent = "Suma Resultado";
-                matrizResultado.appendChild(titulo);
-
-                const contenedor3 = document.getElementById('contenedor3');
-                contenedor3.setAttribute('class','contenedor');
-
-                for(var j=0; j<filas.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas.value; i++){
-                        fila.push(document.getElementById('valor'+id).value);
-                        id++;
-                    }
-                    matriz1.push(fila);
-                }  
-
-                id=1;
-                for(var j=0; j<filas1.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas1.value; i++){
-                        fila.push(document.getElementById('val'+id).value);
-                        id++;
-                    }
-                    matriz2.push(fila);
-                }  
-
-                for(var j=0; j<filas.value; j++){
-                    var span = document.createElement('span');
-                    for(var i=0; i<columnas.value; i++){
-                        var input = document.createElement('input'); 
-                        input.setAttribute('type','text');
-                        input.setAttribute('readonly','');
-
-                        input.value = parseInt(matriz1[j][i])+parseInt(matriz2[j][i]);
-                        id++;
-                        span.appendChild(input);
-                    }
-                    matrizResultado.appendChild(span); 
-                }  
-            }
-
-            
-        }
-
-        function restarMatrices(){
-            var matriz1 = [];
-            var matriz2 = [];
-            const matrizResultado = document.getElementById('restaResultado');
-            
-            var filas = document.getElementById('num1');
-            var columnas = document.getElementById('num2');
-            var filas1 = document.getElementById('num3');
-            var columnas1 = document.getElementById('num4');
-            var id = 1;
-
-
-            if(filas.value!=filas1.value || columnas.value!=columnas1.value){
-                alert('La cantidad de filas y columnas es diferente');
-            }else{
-                var titulo = document.createElement('h3');
-                titulo.textContent = "Resta Resultado";
-                matrizResultado.appendChild(titulo);
-
-                const contenedor3 = document.getElementById('contenedor3');
-                contenedor3.setAttribute('class','contenedor');
-
-                for(var j=0; j<filas.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas.value; i++){
-                        fila.push(document.getElementById('valor'+id).value);
-                        id++;
-                    }
-                    matriz1.push(fila);
-                }  
-
-                id=1;
-                for(var j=0; j<filas1.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas1.value; i++){
-                        fila.push(document.getElementById('val'+id).value);
-                        id++;
-                    }
-                    matriz2.push(fila);
-                }  
-
-                for(var j=0; j<filas.value; j++){
-                    var span = document.createElement('span');
-                    for(var i=0; i<columnas.value; i++){
-                        var input = document.createElement('input'); 
-                        input.setAttribute('type','text');
-                        input.setAttribute('readonly','');
-
-                        input.value = parseInt(matriz1[j][i])-parseInt(matriz2[j][i]);
-                        id++;
-                        span.appendChild(input);
-                    }
-                    matrizResultado.appendChild(span); 
-                }  
-            }
-        }
-
-        function multiplicarMatrices(){
-            var filas = document.getElementById('num1');
-            var columnas = document.getElementById('num2');
-            var filas2 = document.getElementById('num3');
-            var columnas2 = document.getElementById('num4');
-            var multiResultado = document.getElementById('resultado');
-
-            if(columnas.value!=filas2.value){
-                alert('La cantidad de filas de la Matriz1 debe ser igual a la cantidad de columnas de la Matriz2');
-            }else{
-                var titulo = document.createElement('h3');
-                titulo.textContent = "Multi Resultado";
-                multiResultado.appendChild(titulo);
-
-                const contenedor3 = document.getElementById('contenedor3');
-                    contenedor3.setAttribute('class','contenedor');
-
-                var respuestaMatriz = [];
-
-                var matriz1 = [];
-                var matriz2 = [];
-
-                var id=1;
-                for(var j=0; j<filas.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas.value; i++){
-                        fila.push(document.getElementById('valor'+id).value);
-                        id++;
-                    }
-                    matriz1.push(fila);
-                }  
-
-                id=1;
-                for(var j=0; j<filas2.value; j++){
-                    var fila = [];
-                    for(var i=0; i<columnas2.value; i++){
-                        fila.push(document.getElementById('val'+id).value);
-                        id++;
-                    }
-                    matriz2.push(fila);
-                } 
-
-                for(var i=0; i<filas.value; i++){
-                    var fila = [];
-                    for(var j=0; j<columnas2.value; j++){
-                        var aux = 0 ;
-                        fila.push(aux);
-                    }
-                    respuestaMatriz.push(fila);
-                }
-
-                for(var i=0; i< filas.value;i++){
-                    var span = document.createElement('span');
-                    for(var j=0; j< columnas2.value; j++){
-                        respuestaMatriz[i][j]= 0;
-                        for(var k=0; k<columnas.value; k++){
-                            respuestaMatriz[i][j]+=matriz1[i][k]*matriz2[k][j];
-                        }
-                        var input = document.createElement('input'); 
-                        input.setAttribute('type','text');
-                        input.setAttribute('readonly','');
-                        input.value = respuestaMatriz[i][j];
-                        span.appendChild(input);
-                    }
-                    multiResultado.appendChild(span); 
-                }
-            }
-        }
-        window.addEventListener('load', listeners);
-    </script>
-    <link rel="stylesheet" href="../css/stylesala.css">
-</head>
-<body>
-    <!--HEADER-->
-     <!--HEADER-->
-     <header class="header">
-        <!--BARRA PROMOCIONAL-->
-        <div class="barra-promocional" id="barra-promocional"></div>
-        <!--MENU-->
-        <div class="ancho" id="ancho">
-            <!--LOGO-->
-            <div class="logo"id="logo"> </div>
-            <!--TITULO-->
-            <div class="titulo"id="titulo" ></div>
-            <!--BARRA DE NAVEGACION-->
-            <nav class="barra-navegacion" id="barra-navegacion">
-                <ul id=ul>
-                </ul>
-            </nav>
-            <!--ESPACIO-->
-            <div class="espacio2"></div>
-        </div>   
-        <!--MENU-RESPONSIVE-->
-        <!--BARRA DE HAMBURGUESA-->
-        <nav id="menuicono">
-            <img src="https://img.icons8.com/ios-filled/50/000000/menu-2.png" width="20" height="20" id="menu-img">
-        </nav>
-        
-    </header>
-    <!--BARRA DE NAVEGACION RESPONSIVE-->
-    <nav id="menuprincipal">
-        <div id='divresponsive'>  
-            <ul id="ulresponsive"></ul>
-        </div>
-    </nav>
-    
-    <div id="particles-js">
-        <div id="ancho-letras">
-            <h1><u>Suma, Resta y Multiplicación de Matrices</u></h1>
-            <br>
-            <p>Instructivo:</p>
-            <br>
-            <p>
-                Si desea volver a realizar las operaciones debe refrescar la pagina.
-                <br>
-                Si deseas ingresar nuevas longitudes debe refrescar la pagina.
-            </p>
-            <br>
-            <br>
-            <br>
-        </div>
-    </div>
-    <main>
-            <br>
-            <div class="contenedor">
-                <div class="elementos">
-                    <h2>Matriz 1</h2>
-                    <div>
-                        <span> 
-                            Filas:
-                            <br>                
-                            <input type="number" id="num1" min="1">  
-                        </span>        
-                    </div>  
-                    <div>
-                        <span>
-                            Columnas: 
-                            <br>                
-                            <input type="number" id="num2" min="1">
-                        </span>
-                    </div>
-                    <br>
-                    <button onclick="crearMatriz1()">Generar</button>
-                </div>
-        
-                <div class="elementos">
-                    <h2>Matriz 2</h2>
-                    <span> Filas:
-                        <br>                
-                        <input type="number" id="num3">
-                    </span>            
-                    <span> Columnas: 
-                        <br>                
-                        <input type="number" id="num4">
-                    </span>
-                </div>
-            </div>
-            <br><br>
-        
-            <div id="contenedor2" >
-                <div class="matriz" id="matriz1">
-        
-                </div>
-                  
-                <div class="matriz" id="matriz2">
-        
-                </div>
-            </div>
-            <div id="contenedor3">
-                <div class="matriz" id="resultado">
-                </div>
-                <div class="matriz" id="restaResultado">
-                </div>
-            </div>
-            <div>
-                <br>
-            </div>
-    </main>
-    <footer class="footer" id="footer">
-        <div class="container" id="container">
-        </div>
-    </footer>
-   
-    <!--SCRIPT MENU-->
-    <script src="../assets/index.js"></script>
-    <script src="../assets/script.js"></script>
-    <script src="../assets/particles.js"></script>
-    <script src="../assets/app.js"></script>
-</body>
-</html>
+ú<ú!úDúOúCúTúYúPúEú úhútúmúlú>ú
+ú
+ú<úhútúmúlú úlúaúnúgú=ú"úeúnú"ú>ú
+ú
+ú<úhúeúaúdú>ú
+ú
+ú ú ú ú ú<úmúeútúaú úcúhúaúrúsúeútú=ú"úUúTúFú-ú8ú"ú>ú
+ú
+ú ú ú ú ú<úmúeútúaú úhútútúpú-úeúqúuúiúvú=ú"úXú-úUúAú-úCúoúmúpúaútúiúbúlúeú"ú úcúoúnútúeúnútú=ú"úIúEú=úeúdúgúeú"ú>ú
+ú
+ú ú ú ú ú<úmúeútúaú únúaúmúeú=ú"úvúiúeúwúpúoúrútú"ú úcúoúnútúeúnútú=ú"úwúiúdútúhú=údúeúvúiúcúeú-úwúiúdútúhú,ú úiúnúiútúiúaúlú-úsúcúaúlúeú=ú1ú.ú0ú"ú>ú
+ú
+ú ú ú ú ú<útúiútúlúeú>úRúeúgúiúsútúrúaúrúsúeú<ú/útúiútúlúeú>ú
+ú
+ú ú ú ú ú<úlúiúnúkú úrúeúlú=ú"úsútúyúlúeúsúhúeúeútú"ú úhúrúeúfú=ú"úcúsúsú/úsútúyúlúeú.úcúsúsú"ú>ú
+ú
+ú ú ú ú ú<úlúiúnúkú úrúeúlú=ú"úsútúyúlúeúsúhúeúeútú"ú úmúeúdúiúaú=ú"ú(úmúaúxú-úwúiúdútúhú:ú7ú5ú3úpúxú)ú"úhúrúeúfú=ú"úcúsúsú/úsútúyúlúeú2ú.úcúsúsú"ú>ú
+ú
+ú ú ú ú ú<úlúiúnúkú úrúeúlú=ú"úsútúyúlúeúsúhúeúeútú"ú úmúeúdúiúaú=ú"ú(úmúaúxú-úwúiúdútúhú:ú5ú2ú5úpúxú)ú"úhúrúeúfú=ú"úcúsúsú/úsútúyúlúeú3ú.úcúsúsú"ú>ú
+ú
+ú ú ú ú ú<úlúiúnúkú úrúeúlú=ú"úsútúyúlúeúsúhúeúeútú"ú úmúeúdúiúaú=ú"ú(úmúaúxú-úwúiúdútúhú:ú4ú0ú0úpúxú)ú"úhúrúeúfú=ú"úcúsúsú/úsútúyúlúeú4ú.úcúsúsú"ú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú úsúrúcú=ú"úhútútúpúsú:ú/ú/úkúiútú.úfúoúnútúaúwúeúsúoúmúeú.úcúoúmú/úbúcú9ú0ú3ú1úeúdúeú6ú.újúsú"ú úcúrúoúsúsúoúrúiúgúiúnú=ú"úaúnúoúnúyúmúoúuúsú"ú>ú<ú/úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú ú ú ú úvúaúrú úiúsúCúrúeúaútúeúdú ú=ú úfúaúlúsúeú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú úfúuúnúcútúiúoúnú úlúiúsútúeúnúeúrúsú(ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úsúeúlúeúcútúEúlúeúmúeúnútú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úsúeúlúeúcútúEúlúeúmúeúnútú.úaúdúdúEúvúeúnútúLúiúsútúeúnúeúrú(ú'úcúhúaúnúgúeú'ú,ú ú(úeúvúeúnútú)ú ú=ú>ú ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú únúuúmú3ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú únúuúmú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú únúuúmú3ú.úvúaúlúuúeú ú=ú únúuúmú1ú.úvúaúlúuúeú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úsúeúlúeúcútúEúlúeúmúeúnútú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úsúeúlúeúcútúEúlúeúmúeúnútú1ú.úaúdúdúEúvúeúnútúLúiúsútúeúnúeúrú(ú'úcúhúaúnúgúeú'ú,ú ú(úeúvúeúnútú)ú ú=ú>ú ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú únúuúmú4ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú4ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú únúuúmú2ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú únúuúmú4ú.úvúaúlúuúeú ú=ú únúuúmú2ú.úvúaúlúuúeú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú úfúuúnúcútúiúoúnú úcúrúeúaúrúMúaútúrúiúzú1ú(ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú4ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúdú ú=ú ú1ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úiúfú(úiúsúCúrúeúaútúeúdú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úaúlúeúrútú(ú'úRúeúcúaúrúgúaú úlúaú úpúáúgúiúnúaú úpúaúrúaú úgúeúnúeúrúaúrú úuúnúaú únúuúeúvúaú úmúaútúrúiúzú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}úeúlúsúeú úiúfú(úcúoúlúuúmúnúaúsú.úvúaúlúuúeú<ú=ú0ú ú|ú|ú úfúiúlúaúsú.úvúaúlúuúeú<ú=ú0ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úaúlúeúrútú(ú'úIúnúgúrúeúsúaú úuúnú únúúúmúeúrúoú úvúáúlúiúdúoú údúeú úfúiúlúaúsú úyú úcúoúlúuúmúnúaúsú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}úeúlúsúeú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úmúaútúrúiúzú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úmúaútúrúiúzú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úmúaútúrúiúzú2ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úmúaútúrúiúzú2ú'ú)ú;ú
+ú
+ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúnútúeúnúeúdúoúrú2ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úcúoúnútúeúnúeúdúoúrú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnútúeúnúeúdúoúrú2ú.úsúeútúAútútúrúiúbúuútúeú(ú'úcúlúaúsúsú'ú,ú'úcúoúnútúeúnúeúdúoúrú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúpúaúnú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úsúpúaúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúnúpúuútú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úiúnúpúuútú'ú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'útúyúpúeú'ú,ú'únúuúmúbúeúrú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'úiúdú'ú,ú'úvúaúlúoúrú'ú+úiúdú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúpúaúnú.úaúpúpúeúnúdúCúhúiúlúdú(úiúnúpúuútú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úaúpúpúeúnúdúCúhúiúlúdú(úsúpúaúnú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú=ú1ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú1ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúpúaúnú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úsúpúaúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú1ú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúnúpúuútú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úiúnúpúuútú'ú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'útúyúpúeú'ú,ú'únúuúmúbúeúrú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'úiúdú'ú,ú'úvúaúlú'ú+úiúdú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúpúaúnú.úaúpúpúeúnúdúCúhúiúlúdú(úiúnúpúuútú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú2ú.úaúpúpúeúnúdúCúhúiúlúdú(úsúpúaúnú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úaúpúpúeúnúdúCúhúiúlúdú(údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úbúrú'ú)ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúuúmúaúrú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úbúuútútúoúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úrúeúsútúaúrú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úbúuútútúoúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúuúlútúiúpúlúiúcúaúrú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úbúuútútúoúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúuúmúaúrú.úsúeútúAútútúrúiúbúuútúeú(ú'úoúnúCúlúiúcúkú'ú,ú ú'úsúuúmúaúrúMúaútúrúiúcúeúsú(ú)ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúuúmúaúrú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úSúuúmúaúrú"ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úrúeúsútúaúrú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úRúeúsútúaúrú"ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úrúeúsútúaúrú.úsúeútúAútútúrúiúbúuútúeú(ú'úoúnúCúlúiúcúkú'ú,ú ú'úrúeúsútúaúrúMúaútúrúiúcúeúsú(ú)ú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúuúlútúiúpúlúiúcúaúrú.úsúeútúAútútúrúiúbúuútúeú(ú'úoúnúCúlúiúcúkú'ú,ú'úmúuúlútúiúpúlúiúcúaúrúMúaútúrúiúcúeúsú(ú)ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúuúlútúiúpúlúiúcúaúrú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úMúuúlútúiúpúlúiúcúaúrú"ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úaúpúpúeúnúdúCúhúiúlúdú(úsúuúmúaúrú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úaúpúpúeúnúdúCúhúiúlúdú(úrúeúsútúaúrú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úaúpúpúeúnúdúCúhúiúlúdú(úmúuúlútúiúpúlúiúcúaúrú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúsúCúrúeúaútúeúdú ú=ú útúrúuúeú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú úfúuúnúcútúiúoúnú úsúuúmúaúrúMúaútúrúiúcúeúsú(ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú1ú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú2ú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úrúeúsúuúlútúaúdúoú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú4ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúdú ú=ú ú1ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úiúfú(úfúiúlúaúsú.úvúaúlúuúeú!ú=úfúiúlúaúsú1ú.úvúaúlúuúeú ú|ú|ú úcúoúlúuúmúnúaúsú.úvúaúlúuúeú!ú=úcúoúlúuúmúnúaúsú1ú.úvúaúlúuúeú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úaúlúeúrútú(ú'úLúaú úcúaúnútúiúdúaúdú údúeú úfúiúlúaúsú úyú úcúoúlúuúmúnúaúsú úeúsú údúiúfúeúrúeúnútúeú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú úeúlúsúeú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú útúiútúuúlúoú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úhú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú útúiútúuúlúoú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úSúuúmúaú úRúeúsúuúlútúaúdúoú"ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(útúiútúuúlúoú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úcúoúnútúeúnúeúdúoúrú3ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úcúoúnútúeúnúeúdúoúrú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnútúeúnúeúdúoúrú3ú.úsúeútúAútútúrúiúbúuútúeú(ú'úcúlúaúsúsú'ú,ú'úcúoúnútúeúnúeúdúoúrú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlúoúrú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú=ú1ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú1ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú1ú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú2ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúpúaúnú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úsúpúaúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúnúpúuútú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úiúnúpúuútú'ú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'útúyúpúeú'ú,ú'útúeúxútú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'úrúeúaúdúoúnúlúyú'ú,ú'ú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úvúaúlúuúeú ú=ú úpúaúrúsúeúIúnútú(úmúaútúrúiúzú1ú[újú]ú[úiú]ú)ú+úpúaúrúsúeúIúnútú(úmúaútúrúiúzú2ú[újú]ú[úiú]ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúpúaúnú.úaúpúpúeúnúdúCúhúiúlúdú(úiúnúpúuútú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(úsúpúaúnú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú úfúuúnúcútúiúoúnú úrúeúsútúaúrúMúaútúrúiúcúeúsú(ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú1ú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú2ú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úrúeúsútúaúRúeúsúuúlútúaúdúoú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú1ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú4ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúdú ú=ú ú1ú;ú
+ú
+ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úiúfú(úfúiúlúaúsú.úvúaúlúuúeú!ú=úfúiúlúaúsú1ú.úvúaúlúuúeú ú|ú|ú úcúoúlúuúmúnúaúsú.úvúaúlúuúeú!ú=úcúoúlúuúmúnúaúsú1ú.úvúaúlúuúeú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úaúlúeúrútú(ú'úLúaú úcúaúnútúiúdúaúdú údúeú úfúiúlúaúsú úyú úcúoúlúuúmúnúaúsú úeúsú údúiúfúeúrúeúnútúeú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}úeúlúsúeú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú útúiútúuúlúoú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úhú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú útúiútúuúlúoú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úRúeúsútúaú úRúeúsúuúlútúaúdúoú"ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(útúiútúuúlúoú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úcúoúnútúeúnúeúdúoúrú3ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úcúoúnútúeúnúeúdúoúrú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnútúeúnúeúdúoúrú3ú.úsúeútúAútútúrúiúbúuútúeú(ú'úcúlúaúsúsú'ú,ú'úcúoúnútúeúnúeúdúoúrú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlúoúrú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú=ú1ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú1ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú1ú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú2ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúpúaúnú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úsúpúaúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúnúpúuútú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úiúnúpúuútú'ú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'útúyúpúeú'ú,ú'útúeúxútú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'úrúeúaúdúoúnúlúyú'ú,ú'ú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úvúaúlúuúeú ú=ú úpúaúrúsúeúIúnútú(úmúaútúrúiúzú1ú[újú]ú[úiú]ú)ú-úpúaúrúsúeúIúnútú(úmúaútúrúiúzú2ú[újú]ú[úiú]ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúpúaúnú.úaúpúpúeúnúdúCúhúiúlúdú(úiúnúpúuútú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(úsúpúaúnú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú úfúuúnúcútúiúoúnú úmúuúlútúiúpúlúiúcúaúrúMúaútúrúiúcúeúsú(ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú1ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaúsú2ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úcúoúlúuúmúnúaúsú2ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'únúuúmú4ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúuúlútúiúRúeúsúuúlútúaúdúoú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úrúeúsúuúlútúaúdúoú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú úiúfú(úcúoúlúuúmúnúaúsú.úvúaúlúuúeú!ú=úfúiúlúaúsú2ú.úvúaúlúuúeú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úaúlúeúrútú(ú'úLúaú úcúaúnútúiúdúaúdú údúeú úfúiúlúaúsú údúeú úlúaú úMúaútúrúiúzú1ú údúeúbúeú úsúeúrú úiúgúuúaúlú úaú úlúaú úcúaúnútúiúdúaúdú údúeú úcúoúlúuúmúnúaúsú údúeú úlúaú úMúaútúrúiúzú2ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}úeúlúsúeú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú útúiútúuúlúoú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úhú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú útúiútúuúlúoú.útúeúxútúCúoúnútúeúnútú ú=ú ú"úMúuúlútúiú úRúeúsúuúlútúaúdúoú"ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúuúlútúiúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(útúiútúuúlúoú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnúsútú úcúoúnútúeúnúeúdúoúrú3ú ú=ú údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úcúoúnútúeúnúeúdúoúrú3ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úcúoúnútúeúnúeúdúoúrú3ú.úsúeútúAútútúrúiúbúuútúeú(ú'úcúlúaúsúsú'ú,ú'úcúoúnútúeúnúeúdúoúrú'ú)ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úrúeúsúpúuúeúsútúaúMúaútúrúiúzú ú=ú ú[ú]ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú1ú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úmúaútúrúiúzú2ú ú=ú ú[ú]ú;ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúdú=ú1ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlúoúrú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú1ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú=ú1ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úfúiúlúaúsú2ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úcúoúlúuúmúnúaúsú2ú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(údúoúcúuúmúeúnútú.úgúeútúEúlúeúmúeúnútúBúyúIúdú(ú'úvúaúlú'ú+úiúdú)ú.úvúaúlúuúeú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúdú+ú+ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúaútúrúiúzú2ú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<úfúiúlúaúsú.úvúaúlúuúeú;ú úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úfúiúlúaú ú=ú ú[ú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<úcúoúlúuúmúnúaúsú2ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úaúuúxú ú=ú ú0ú ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúiúlúaú.úpúuúsúhú(úaúuúxú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úrúeúsúpúuúeúsútúaúMúaútúrúiúzú.úpúuúsúhú(úfúiúlúaú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úiú=ú0ú;ú úiú<ú úfúiúlúaúsú.úvúaúlúuúeú;úiú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úsúpúaúnú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úsúpúaúnú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú újú=ú0ú;ú újú<ú úcúoúlúuúmúnúaúsú2ú.úvúaúlúuúeú;ú újú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úrúeúsúpúuúeúsútúaúMúaútúrúiúzú[úiú]ú[újú]ú=ú ú0ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úfúoúrú(úvúaúrú úkú=ú0ú;ú úkú<úcúoúlúuúmúnúaúsú.úvúaúlúuúeú;ú úkú+ú+ú)ú{ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úrúeúsúpúuúeúsútúaúMúaútúrúiúzú[úiú]ú[újú]ú+ú=úmúaútúrúiúzú1ú[úiú]ú[úkú]ú*úmúaútúrúiúzú2ú[úkú]ú[újú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úvúaúrú úiúnúpúuútú ú=ú údúoúcúuúmúeúnútú.úcúrúeúaútúeúEúlúeúmúeúnútú(ú'úiúnúpúuútú'ú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'útúyúpúeú'ú,ú'útúeúxútú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úsúeútúAútútúrúiúbúuútúeú(ú'úrúeúaúdúoúnúlúyú'ú,ú'ú'ú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úiúnúpúuútú.úvúaúlúuúeú ú=ú úrúeúsúpúuúeúsútúaúMúaútúrúiúzú[úiú]ú[újú]ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úsúpúaúnú.úaúpúpúeúnúdúCúhúiúlúdú(úiúnúpúuútú)ú;ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úmúuúlútúiúRúeúsúuúlútúaúdúoú.úaúpúpúeúnúdúCúhúiúlúdú(úsúpúaúnú)ú;ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú ú}ú
+ú
+ú ú ú ú ú ú ú ú úwúiúnúdúoúwú.úaúdúdúEúvúeúnútúLúiúsútúeúnúeúrú(ú'úlúoúaúdú'ú,ú úlúiúsútúeúnúeúrúsú)ú;ú
+ú
+ú ú ú ú ú<ú/úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú<úlúiúnúkú úrúeúlú=ú"úsútúyúlúeúsúhúeúeútú"ú úhúrúeúfú=ú"úcúsúsú/úsútúyúlúeúsúaúlúaú.úcúsúsú"ú>ú
+ú
+ú<ú/úhúeúaúdú>ú
+ú
+ú<úbúoúdúyú>ú
+ú
+ú ú ú ú ú<ú!ú-ú-úHúEúAúDúEúRú-ú-ú>ú
+ú
+ú ú ú ú ú ú<ú!ú-ú-úHúEúAúDúEúRú-ú-ú>ú
+ú
+ú ú ú ú ú ú<úhúeúaúdúeúrú úcúlúaúsúsú=ú"úhúeúaúdúeúrú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú!ú-ú-úBúAúRúRúAú úPúRúOúMúOúCúIúOúNúAúLú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úbúaúrúrúaú-úpúrúoúmúoúcúiúoúnúaúlú"ú úiúdú=ú"úbúaúrúrúaú-úpúrúoúmúoúcúiúoúnúaúlú"ú>ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú!ú-ú-úMúEúNúUú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úaúnúcúhúoú"ú úiúdú=ú"úaúnúcúhúoú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú!ú-ú-úLúOúGúOú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úlúoúgúoú"úiúdú=ú"úlúoúgúoú"ú>ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú!ú-ú-úTúIúTúUúLúOú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"útúiútúuúlúoú"úiúdú=ú"útúiútúuúlúoú"ú ú>ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú!ú-ú-úBúAúRúRúAú úDúEú úNúAúVúEúGúAúCúIúOúNú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<únúaúvú úcúlúaúsúsú=ú"úbúaúrúrúaú-únúaúvúeúgúaúcúiúoúnú"ú úiúdú=ú"úbúaúrúrúaú-únúaúvúeúgúaúcúiúoúnú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úuúlú úiúdú=úuúlú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úuúlú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/únúaúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú!ú-ú-úEúSúPúAúCúIúOú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úeúsúpúaúcúiúoú2ú"ú>ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú<ú!ú-ú-úMúEúNúUú-úRúEúSúPúOúNúSúIúVúEú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú!ú-ú-úBúAúRúRúAú úDúEú úHúAúMúBúUúRúGúUúEúSúAú-ú-ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<únúaúvú úiúdú=ú"úmúeúnúuúiúcúoúnúoú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úiúmúgú úsúrúcú=ú"úhútútúpúsú:ú/ú/úiúmúgú.úiúcúoúnúsú8ú.úcúoúmú/úiúoúsú-úfúiúlúlúeúdú/ú5ú0ú/ú0ú0ú0ú0ú0ú0ú/úmúeúnúuú-ú2ú.úpúnúgú"ú úwúiúdútúhú=ú"ú2ú0ú"ú úhúeúiúgúhútú=ú"ú2ú0ú"ú úiúdú=ú"úmúeúnúuú-úiúmúgú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú/únúaúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú<ú/úhúeúaúdúeúrú>ú
+ú
+ú ú ú ú ú<ú!ú-ú-úBúAúRúRúAú úDúEú úNúAúVúEúGúAúCúIúOúNú úRúEúSúPúOúNúSúIúVúEú-ú-ú>ú
+ú
+ú ú ú ú ú<únúaúvú úiúdú=ú"úmúeúnúuúpúrúiúnúcúiúpúaúlú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<údúiúvú úiúdú=ú'údúiúvúrúeúsúpúoúnúsúiúvúeú'ú>ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úuúlú úiúdú=ú"úuúlúrúeúsúpúoúnúsúiúvúeú"ú>ú<ú/úuúlú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú<ú/únúaúvú>ú
+ú
+ú ú ú ú ú
+ú
+ú ú ú ú ú<údúiúvú úiúdú=ú"úpúaúrútúiúcúlúeúsú-újúsú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<údúiúvú úiúdú=ú"úaúnúcúhúoú-úlúeútúrúaúsú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úhú1ú>ú<úuú>úSúuúmúaú,ú úRúeúsútúaú úyú úMúuúlútúiúpúlúiúcúaúcúiúóúnú údúeú úMúaútúrúiúcúeúsú<ú/úuú>ú<ú/úhú1ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úpú>úIúnúsútúrúuúcútúiúvúoú:ú<ú/úpú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úpú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úSúiú údúeúsúeúaú úvúoúlúvúeúrú úaú úrúeúaúlúiúzúaúrú úlúaúsú úoúpúeúrúaúcúiúoúnúeúsú údúeúbúeú úrúeúfúrúeúsúcúaúrú úlúaú úpúaúgúiúnúaú.ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úSúiú údúeúsúeúaúsú úiúnúgúrúeúsúaúrú únúuúeúvúaúsú úlúoúnúgúiútúuúdúeúsú údúeúbúeú úrúeúfúrúeúsúcúaúrú úlúaú úpúaúgúiúnúaú.ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úpú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú<úmúaúiúnú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úcúoúnútúeúnúeúdúoúrú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úeúlúeúmúeúnútúoúsú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úhú2ú>úMúaútúrúiúzú ú1ú<ú/úhú2ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úsúpúaúnú>ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úFúiúlúaúsú:ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úiúnúpúuútú útúyúpúeú=ú"únúuúmúbúeúrú"ú úiúdú=ú"únúuúmú1ú"ú úmúiúnú=ú"ú1ú"ú>ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úsúpúaúnú>ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úsúpúaúnú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú úCúoúlúuúmúnúaúsú:ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úiúnúpúuútú útúyúpúeú=ú"únúuúmúbúeúrú"ú úiúdú=ú"únúuúmú2ú"ú úmúiúnú=ú"ú1ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úsúpúaúnú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúuútútúoúnú úoúnúcúlúiúcúkú=ú"úcúrúeúaúrúMúaútúrúiúzú1ú(ú)ú"ú>úGúeúnúeúrúaúrú<ú/úbúuútútúoúnú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úeúlúeúmúeúnútúoúsú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úhú2ú>úMúaútúrúiúzú ú2ú<ú/úhú2ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úsúpúaúnú>ú úFúiúlúaúsú:ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úiúnúpúuútú útúyúpúeú=ú"únúuúmúbúeúrú"ú úiúdú=ú"únúuúmú3ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úsúpúaúnú>ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úsúpúaúnú>ú úCúoúlúuúmúnúaúsú:ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úiúnúpúuútú útúyúpúeú=ú"únúuúmúbúeúrú"ú úiúdú=ú"únúuúmú4ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/úsúpúaúnú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úiúdú=ú"úcúoúnútúeúnúeúdúoúrú2ú"ú ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úmúaútúrúiúzú"ú úiúdú=ú"úmúaútúrúiúzú1ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úmúaútúrúiúzú"ú úiúdú=ú"úmúaútúrúiúzú2ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úiúdú=ú"úcúoúnútúeúnúeúdúoúrú3ú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úmúaútúrúiúzú"ú úiúdú=ú"úrúeúsúuúlútúaúdúoú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úmúaútúrúiúzú"ú úiúdú=ú"úrúeúsútúaúRúeúsúuúlútúaúdúoú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<údúiúvú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú ú<úbúrú>ú
+ú
+ú ú ú ú ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú<ú/úmúaúiúnú>ú
+ú
+ú ú ú ú ú<úfúoúoútúeúrú úcúlúaúsúsú=ú"úfúoúoútúeúrú"ú úiúdú=ú"úfúoúoútúeúrú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<údúiúvú úcúlúaúsúsú=ú"úcúoúnútúaúiúnúeúrú"ú úiúdú=ú"úcúoúnútúaúiúnúeúrú"ú>ú
+ú
+ú ú ú ú ú ú ú ú ú<ú/údúiúvú>ú
+ú
+ú ú ú ú ú<ú/úfúoúoútúeúrú>ú
+ú
+ú ú ú ú
+ú
+ú ú ú ú ú<ú!ú-ú-úSúCúRúIúPúTú úMúEúNúUú-ú-ú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú úsúrúcú=ú"úaúsúsúeútúsú/úiúnúdúeúxú.újúsú"ú>ú<ú/úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú úsúrúcú=ú"úaúsúsúeútúsú/úsúcúrúiúpútú.újúsú"ú>ú<ú/úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú úsúrúcú=ú"úaúsúsúeútúsú/úpúaúrútúiúcúlúeúsú.újúsú"ú>ú<ú/úsúcúrúiúpútú>ú
+ú
+ú ú ú ú ú<úsúcúrúiúpútú úsúrúcú=ú"úaúsúsúeútúsú/úaúpúpú.újúsú"ú>ú<ú/úsúcúrúiúpútú>ú
+ú
+ú<ú/úbúoúdúyú>ú
+ú
+ú<ú/úhútúmúlú>ú
+ú
+ú
+ú
+ú

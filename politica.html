@@ -1,179 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="icon" href="../assets/linux.ico">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" media="(max-width:753px)"href="../css/style2.css">
-    <link rel="stylesheet" media="(max-width:525px)"href="../css/style3.css">
-    <link rel="stylesheet" media="(max-width:400px)"href="../css/style4.css">
-    <script src="https://kit.fontawesome.com/bc9031ede6.js" crossorigin="anonymous"></script>
+    <title>Políticas de Privacidad | AcademyC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 512%22 fill=%22%23FF0049%22><path d=%22M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-14.9 31.7-20.9 67.9-15.8 103.5 5.5 38.5 26 71.4 55.9 92.2-16.1 40.3-28.1 86.2-31.9 136.6-1.2 15.5 11 28.1 26.5 28.1h150.7c15.5 0 27.7-12.6 26.5-28.1-3.8-50.4-15.8-96.3-31.9-136.6 29.9-20.8 50.4-53.7 55.9-92.2 5.1-35.6-.9-71.8-15.8-103.5l104.2 32.03c15.2 4.67 31.6 4.67 46.79 0l231.9-71.3c23.5-7.23 23.5-38.36 0-45.6z%22/></svg>">
+    <style>
+        .legal-content { background: var(--card-bg); padding: 60px; border-radius: 24px; box-shadow: var(--shadow-md); margin: 40px auto; max-width: 900px; border: 1px solid var(--border); color: var(--text-dark); }
+        .legal-content h2 { font-size: 24px; font-weight: 800; margin: 30px 0 15px; color: var(--secondary); border-bottom: 2px solid var(--primary); display: inline-block; }
+        .legal-content p { margin-bottom: 20px; color: var(--text-muted); text-align: justify; }
+        .legal-content ul { margin-bottom: 20px; padding-left: 20px; list-style: disc; color: var(--text-muted); }
+        .legal-content li { margin-bottom: 10px; }
+    </style>
 </head>
-
 <body>
-    <!--HEADER-->
-    <header class="header">
-        <!--BARRA PROMOCIONAL-->
-        <div class="barra-promocional" id="barra-promocional"></div>
-        <!--MENU-->
-        <div class="ancho" id="ancho">
-            <!--LOGO-->
-            <div class="logo"id="logo"> </div>
-            <!--TITULO-->
-            <div class="titulo"id="titulo" ></div>
-            <!--BARRA DE NAVEGACION-->
-            <nav class="barra-navegacion" id="barra-navegacion">
-                <ul id=ul>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo-area">
+                <a href="index.html" class="brand">
+                    <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="logo-text">AcademyC</span>
+                </a>
+            </div>
+            <nav class="nav-links" id="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Miembro <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="registrarse.html">Registrarse</a>
+                            <a href="iniciarsesion.html">Iniciar Sesión</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
-            <!--ESPACIO-->
-            <div class="espacio2"></div>
-        </div>   
-        <!--MENU-RESPONSIVE-->
-        <!--BARRA DE HAMBURGUESA-->
-        <nav id="menuicono">
-            <img src="https://img.icons8.com/ios-filled/50/000000/menu-2.png" width="20" height="20" id="menu-img">
-        </nav>
-        
+            <div class="nav-auth" id="nav-auth">
+                <button class="theme-toggle" id="theme-toggle" title="Cambiar modo">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div id="auth-buttons" style="display: flex; gap: 15px;">
+                    <a href="iniciarsesion.html" class="btn btn-outline">Log in</a>
+                    <a href="registrarse.html" class="btn btn-primary">Únete gratis</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
-    <!--BARRA DE NAVEGACION RESPONSIVE-->
-    <nav id="menuprincipal">
-        <div id='divresponsive'>  
-            <ul id="ulresponsive"></ul>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Privacidad y Transparencia</h1>
+            <p>Tu seguridad y confianza son nuestra prioridad.</p>
         </div>
-    </nav>
-    
-    <div id="particles-js">
-        <div id="ancho-letras">
-            <h1><u>APRENDE ALGO NUEVO CADA DIA</u></h1>
-            <p>Sin salir de tu casa, cancela cuando quieras</p>
-            <br>
-            <a href="precios.html">
-                <button id="suscribete">!Suscribete!</button>
-            </a>
-            <a href="precios.html">
-                <button id="suscribete">Saber más</button>
-            </a>
+    </section>
+
+    <main class="container">
+        <div class="legal-content">
+            <h2>Nuestra Misión de Privacidad</h2>
+            <p>Tu privacidad es fundamental para nosotros. En esta declaración de privacidad explicamos qué datos personales recopilamos y cómo los utilizamos para mejorar tu experiencia de aprendizaje en AcademyC.</p>
+            <h2>Principios de Seguridad</h2>
+            <ul>
+                <li>Solo solicitamos información esencial para el servicio.</li>
+                <li>Nunca compartimos tus datos con terceros sin autorización expresa.</li>
+                <li>Tus datos solo se usan para las finalidades indicadas.</li>
+            </ul>
+            <p style="margin-top: 40px; font-size: 13px; font-style: italic;">Documento revisado en 2026. AcademyC - Desarrollado por Isaac Esteban Haro Torres.</p>
         </div>
-    </div>
-    <main>
-        <div>
-            <br>
-            <h1>Políticas de privacidad</h1>
-            <br>
-            <p id="politica">
-                Tu privacidad es importante para nosotros. En esta declaración de privacidad te explico qué datos personales recopilo de mis usuarios y cómo los utilizo. Te animo a leer detenidamente estos términos antes de facilitar tus datos personales en esta web. Los mayores de 14 años podrán registrarse en https://proyectofinalcssv14.netlify.app/ como usuarios sin el previo consentimiento de sus padres o tutores.
-                En el caso de los menores de 14 años se requiere el consentimiento de los padres o tutores para el tratamiento de sus datos personales.
-                
-                En ningún caso se recabarán del menor de edad datos relativos a la situación profesional, económica o a la intimidad de los otros miembros de la familia, sin el consentimiento de éstos.
-                
-                Si eres menor de 14 años y has accedido a este sitio web sin avisar a tus padres no debes registrarte como usuario.
-                
-                En esta web se respetan y cuidan los datos personales de los usuarios. Como usuario debes saber que tus derechos están garantizados.
-                
-                Me he esforzado en crear un espacio seguro y confiable y por eso quiero compartir mis principios respecto a tu privacidad:
-                
-                    Nunca solicito información personal a menos que realmente sea necesaria para prestarte los servicios que me requieras.
-                    Nunca comparto información personal de mis usuarios con nadie, excepto para cumplir con la ley o en caso que cuente con tu autorización expresa.
-                    Nunca utilizo tus datos personales con una finalidad diferente a la expresada en esta política de privacidad.
-                
-                Es preciso advertir que esta Política de Privacidad podría variar en función de exigencias legislativas o de autorregulación, por lo que se aconseja a los usuarios que la visiten periódicamente. Será aplicable en caso de que los usuarios decidan rellenar algún formulario de cualquiera de sus formularios de contacto donde se recaben datos de carácter personal.
-                
-                AcademyC Academy S.L ha adecuado esta web a las exigencias del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 relativo a la protección de las personas físicas (RGPD), la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), así como con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSICE o LSSI).
-            </p>
-            <br>
-            <h1>Responsable del tratamiento de tus datos personales</h1>
-            <br>
-            <p id="politica">
-                    Identidad del Responsable: AcademyC Academy S.L
-                    Nombre comercial: AcademyC Academy S.L
-                    NIF/CIF: B42712562
-                    Dirección: Avenida Beato Sebastián Aparicio 153. 32540 A Gudiña (Ourense, ESPAÑA)
-                    Correo electrónico: soporte@masterminid.ac
-                    Actividad: Otra educación n.c.o.p.
-                
-                A efectos de lo previsto en el Reglamento General de Protección de Datos antes citado, los datos personales que me envíes a través de los formularios de la web, recibirán el tratamiento de datos de “Usuarios de la web y suscriptores”.
-                
-                Para el tratamiento de datos de mis usuarios, implemento todas las medidas técnicas y organizativas de seguridad establecidas en la legislación vigente.
-            </p>
-            <br>
-            <h1> ¿Cómo he obtenido tus datos?</h1>
-            <br>
-            <p id="politica">
-                
-                Los datos personales que trato en AcademyC Academy S.L proceden de:
-                
-                    Formulario de subscripción
-            </p>
-            <br>
-            <h1> ¿Cuáles son tus derechos cuando me facilitas tus datos?</h1>
-            <br>
-            <p id="politica">
-                Cualquier persona tiene derecho a obtener confirmación sobre si en AcademyC Academy S.L estoy tratando datos personales que me concierne, o no.
-                
-                Las personas interesadas tienen derecho a:
-                
-                    Solicitar el acceso a los datos personales relativos al interesado
-                    Solicitar su rectificación o supresión
-                    Solicitar la limitación de su tratamiento
-                    Oponerse al tratamiento
-                    Solicitar la portabilidad de los datos
-                
-                Los interesados podrán acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaré para el ejercicio o la defensa de reclamaciones.
-                
-                En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos.AcademyC Academy S.L dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones. Como interesado, tienes derecho a recibir los datos personales que te incumban, que me hayas facilitado y en un formato estructurado, de uso común y lectura mecánica, y a transmitirlos a otro responsable del tratamiento cuando:
-                
-                    El tratamiento esté basado en el consentimiento
-                    Los datos hayan sido facilitados por la persona interesada.
-                    El tratamiento se efectúe por medios automatizados.
-                
-                Al ejercer tu derecho a la portabilidad de los datos, tendrás derecho a que los datos personales se transmitan directamente de responsable a responsable cuando sea técnicamente posible.
-                
-                interesados también tendrán derecho a la tutela judicial efectiva y a presentar una reclamación ante la autoridad de control, en este caso, la Agencia Española de Protección de Datos, si consideran que el tratamiento de datos personales que le conciernen infringe el Reglamento.
-                
-            </p>
-            <br>
-            <h1> ¿Con qué finalidad trato tus datos personales?</h1>
-            <br>
-            <p id="politica">
-                
-                Cuando un usuario se conecta con esta web por ejemplo para comentar un post, mandar un correo al titular, suscribirse o realizar alguna contratación, está facilitando información de carácter personal de la que es responsable AcademyC Academy S.L. Esa información puede incluir datos de carácter personal como pueden ser tu dirección IP, nombre, dirección física, dirección de correo electrónico, número de teléfono, y otra información. Al facilitar esta información, el usuario da su consentimiento para que su información sea recopilada, utilizada, gestionada y almacenada por https://proyectofinalcssv14.netlify.app/, sólo como se describe en el Aviso Legal y en la presente Política de Privacidad.
-                
-                En AcademyC Academy S.L existen diferentes sistemas de captura de información personal y trato la información que me facilitan las personas interesadas con el siguiente fin por cada sistema de captura (formularios):
-                
-                    Formulario de suscripción a contenidos: En este caso, solicito los siguientes datos personales: Nombre, Email, para gestionar la lista de suscripciones, enviar boletines, promociones y ofertas especiales, facilitados por el usuario al realizar la suscripción. Dentro de la web existen varios formularios para activar la suscripción. Te informo que los datos que nos facilitas estarán ubicados en los servidores de:
-                        Mailchimp (proveedor de AcademyC Academy S.L), está ubicado fuera de la UE en EEUU. El Tribunal de Justicia de la Unión Europea ha invalidado la Decisión Escudo de la privacidad sin mantener sus efectos, ya que la legislación estadounidense evaluada por el Tribunal no proporciona un nivel de protección sustancialmente equivalente al garantizado en la UE.
-                        Active Campaign (proveedor de AcademyC Academy S.L), está ubicado fuera de la UE en EEUU. El Tribunal de Justicia de la Unión Europea ha invalidado la Decisión Escudo de la privacidad sin mantener sus efectos, ya que la legislación estadounidense evaluada por el Tribunal no proporciona un nivel de protección sustancialmente equivalente al garantizado en la UE.
-                        Trello (proveedor de AcademyC Academy S.L), está ubicado fuera de la UE en EEUU. El Tribunal de Justicia de la Unión Europea ha invalidado la Decisión Escudo de la privacidad sin mantener sus efectos, ya que la legislación estadounidense evaluada por el Tribunal no proporciona un nivel de protección sustancialmente equivalente al garantizado en la UE.
-                        Thinkific (proveedor de AcademyC Academy S.L), Thinkific está ubicado en Canada, un país cuyos nivel de protección son adecuados según Comisión de la UE.
-                
-                Existen otras finalidades por las que trato tus datos personales:
-                
-                    Para garantizar el cumplimiento de las condiciones de uso y la ley aplicable. Esto puede incluir el desarrollo de herramientas y algoritmos que ayudan a esta web a garantizar la confidencialidad de los datos personales que recoge.
-                    Para apoyar y mejorar los servicios que ofrece esta web.
-                    También se recogen otros datos no identificativos que se obtienen mediante algunas cookies que se descargan en el ordenador del usuario cuando navega en esta web que detallo en la política de cookies.
-                    Para gestionar las redes sociales. AcademyC Academy S.L puede tener presencia en redes sociales. El tratamiento de los datos que se lleve a cabo de las personas que se hagan seguidoras en las redes sociales de las páginas oficiales de https://proyectofinalcssv14.netlify.app/, se regirá por este apartado. Así como por aquellas condiciones de uso, políticas de privacidad y normativas de acceso que pertenezcan a la red social que proceda en cada caso y aceptadas previamente por el usuario de AcademyC Academy S.L. Tratará sus datos con las finalidades de administrar correctamente su presencia en la red social, informando de actividades, productos o servicios de AcademyC Academy S.L. Así como para cualquier otra finalidad que las normativas de las redes sociales permitan. En ningún caso utilizaré los perfiles de seguidores en redes sociales para enviar publicidad de manera individual.
-                
-                De acuerdo a lo establecido en el reglamento general de protección de datos europeo (RGPD) 2016/679, AcademyC Academy S.L (AcademyC Academy S.L) con domicilio en Avenida Beato Sebastián Aparicio 153. 32540 A Gudiña (Ourense, ESPAÑA) , Ourense, 32540 será responsable del tratamiento de los datos correspondientes a Usuarios de la web y suscriptores.
-                
-                AcademyC Academy S.L, no vende, alquila ni cede datos de carácter personal que puedan identificar al usuario, ni lo hará en el futuro, a terceros sin el consentimiento previo. Sin embargo, en algunos casos se pueden realizar colaboraciones con otros profesionales, en esos casos, se requerirá consentimiento a los usuarios informando sobre la identidad del colaborador y la finalidad de la colaboración. Siempre se realizará con los más estrictos estándares de seguridad.
-               
-            </p>
-            <h1>  Documento revisado el 11-01-2021.</h1>
-        </div>        
     </main>
-    <footer class="footer" id="footer">
-        <div class="container" id="container">
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AcademyC</h3>
+                <p>Plataforma líder en educación tecnológica independiente. Formamos los expertos del mañana.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/ieharo1"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Planes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="politica.html">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><strong>Isaac Esteban Haro Torres</strong></p>
+                <p>zackharo1@gmail.com</p>
+                <p>098805517</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AcademyC - Desarrollado por Isaac Esteban Haro Torres. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!--SCRIPT MENU-->
-    <script src="../assets/index.js"></script>
-    <script src="../assets/script.js"></script>
-    <script src="../assets/particles.js"></script>
-    <script src="../assets/app.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -1,213 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProyectoFinal</title>
-    <link rel="icon" href="../assets/linux.ico">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" media="(max-width:753px)"href="../css/style2.css">
-    <link rel="stylesheet" media="(max-width:525px)"href="../css/style3.css">
-    <link rel="stylesheet" media="(max-width:400px)"href="../css/style4.css">
-    <script src="https://kit.fontawesome.com/bc9031ede6.js" crossorigin="anonymous"></script>
+    <title>AcademyC | Domina tu futuro tecnológico</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 512%22 fill=%22%23FF0049%22><path d=%22M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-14.9 31.7-20.9 67.9-15.8 103.5 5.5 38.5 26 71.4 55.9 92.2-16.1 40.3-28.1 86.2-31.9 136.6-1.2 15.5 11 28.1 26.5 28.1h150.7c15.5 0 27.7-12.6 26.5-28.1-3.8-50.4-15.8-96.3-31.9-136.6 29.9-20.8 50.4-53.7 55.9-92.2 5.1-35.6-.9-71.8-15.8-103.5l104.2 32.03c15.2 4.67 31.6 4.67 46.79 0l231.9-71.3c23.5-7.23 23.5-38.36 0-45.6z%22/></svg>">
 </head>
-
 <body>
-    <!--HEADER-->
-    <header class="header">
-        <!--BARRA PROMOCIONAL-->
-        <div></div>
-        <div class="barra-promocional" id="barra-promocional"></div>
-        <!--MENU-->
-        <div class="ancho" id="ancho">
-            <!--LOGO-->
-            <div class="logo"id="logo"> </div>
-            <!--TITULO-->
-            <div class="titulo"id="titulo" ></div>
-            <!--BARRA DE NAVEGACION-->
-            <nav class="barra-navegacion" id="barra-navegacion">
-                <ul id=ul>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo-area">
+                <a href="index.html" class="brand">
+                    <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span class="logo-text">AcademyC</span>
+                </a>
+            </div>
+            <nav class="nav-links" id="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Precios</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">Miembro <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="registrarse.html">Registrarse</a>
+                            <a href="iniciarsesion.html">Iniciar Sesión</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
-            <!--ESPACIO-->
-            <div class="espacio2"></div>
-        </div>   
-        <!--MENU-RESPONSIVE-->
-        <!--BARRA DE HAMBURGUESA-->
-        <nav id="menuicono">
-            <img src="https://img.icons8.com/ios-filled/50/000000/menu-2.png" width="20" height="20" id="menu-img">
-        </nav>
-        
+            <div class="nav-auth" id="nav-auth">
+                <button class="theme-toggle" id="theme-toggle" title="Cambiar modo">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div id="auth-buttons" style="display: flex; gap: 15px;">
+                    <a href="iniciarsesion.html" class="btn btn-outline">Log in</a>
+                    <a href="registrarse.html" class="btn btn-primary">Únete gratis</a>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
-    <!--BARRA DE NAVEGACION RESPONSIVE-->
-    <nav id="menuprincipal">
-        <div id='divresponsive'>  
-            <ul id="ulresponsive"></ul>
+
+    <!-- Hero Section -->
+    <section class="hero" id="particles-js">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="fade-in">Aprende de los mejores, <br><span class="highlight">domina tu futuro</span></h1>
+            <p class="fade-in delay">Accede a más de 50 cursos técnicos especializados en hacking, desarrollo y hardware.</p>
+            <div class="hero-btns fade-in delay-2">
+                <a href="cursos.html" class="btn btn-hero-primary">Explorar Cursos</a>
+                <a href="precios.html" class="btn btn-hero-secondary">Ver Planes</a>
+            </div>
         </div>
-    </nav>
-    
-    <div id="particles-js">
-        <div id="ancho-letras">
-            <h1><u>APRENDE ALGO NUEVO CADA DIA</u></h1>
-            <p>Sin salir de tu casa, cancela cuando quieras</p>
-            <br>
-            <a href="precios.html">
-                <button id="suscribete">!Suscribete!</button>
-            </a>
-            <a href="precios.html">
-                <button id="suscribete">Saber más</button>
-            </a>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">5k+</span>
+                <span class="stat-label">Alumnos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Horas de contenido</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30+</span>
+                <span class="stat-label">Cursos expertos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4.9/5</span>
+                <span class="stat-label">Valoración</span>
+            </div>
         </div>
-    </div>
-    <main>
-        <div>
-            <br>
-            <h1>Último curso publicado</h1>
-            <section id="cursosnuevos">
-                <a href="miembro.html">
-                    <article>
-                        <div>
-                            <section>
-                                <h1>Aprende a programar con Python (Edición 2020)</h1>
-                                <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                                <h3>Youtuber</h3>
-                                <br>
-                                <strong>
-                                    <p>¿Tú PC está “lenta”? ¿Tienes menos FPS de los que deberías? En este curso aprenderás TODO LO NECESARIO para optimizar tu PC, y exprimirla al máximo, tanto en el día a día, como al jugar.</p>
-                                </strong>
-                            </section>
-                            <figure>
-                                <img src="../assets/exprimetupcalmaximo.jpg">   
-                            </figure>
+    </section>
+
+    <main class="container">
+        <!-- Featured Course -->
+        <section class="featured-section">
+            <h2 class="section-title">Último lanzamiento</h2>
+            <div class="featured-card">
+                <div class="featured-img">
+                    <img src="assets/img/exprimetupcalmaximo.jpg" alt="Optimización PC">
+                </div>
+                <div class="featured-info">
+                    <span class="badge">NUEVO</span>
+                    <h3>Optimización de Sistemas de Alto Rendimiento</h3>
+                    <p>Lleva tu hardware al límite. Aprende técnicas profesionales de optimización de kernel, gestión de procesos y overclocking seguro.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-clock"></i> 12h contenido</span>
+                        <span><i class="fas fa-signal"></i> Avanzado</span>
+                    </div>
+                    <a href="detalles-curso.html?curso=hacking" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Grid -->
+        <section class="courses-section">
+            <div class="section-header">
+                <h2 class="section-title">Cursos más populares</h2>
+                <a href="cursos.html" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="course-grid">
+                <article class="course-card">
+                    <div class="card-img"><img src="assets/img/pythoncurso.jpg" alt="Python"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Desarrollo</span>
+                        <h3>Python 3: De Cero a Maestro</h3>
+                        <p>Domina el lenguaje más versátil del mundo desde las bases hasta IA.</p>
+                        <div class="card-footer">
+                            <span class="instructor">AcademyC Exclusive</span>
+                            <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-plus"></i></a>
                         </div>
-                    </article>
-                </a>
-            </section>
-            <br>
-            <h1>Los cursos mejor valorados</h1>
-            <section id="cursosnuevos">
-                <a href="miembro.html">
-                    <article>
-                        <div>
-                            <section>
-                                <h1>Aprende a programar con Python (Edición 2020)</h1>
-                                <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                                <h3>Youtuber</h3>
-                                <br>
-                                <strong>
-                                    <p>¿No sabes programar? Mejor, porque en este curso vamos a empezar desde cero. Un curso pensado para todas las personas de todas las edades, independientemente de su nivel.</p>
-                                </strong>
-                            </section>
-                            <figure>
-                                <img src="../assets/pythoncurso.jpg">   
-                            </figure>
+                    </div>
+                </article>
+                <article class="course-card">
+                    <div class="card-img"><img src="assets/img/introduccionhackingetico.jpg" alt="Hacking"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Seguridad</span>
+                        <h3>Introducción al Hacking Ético</h3>
+                        <p>Aprende las bases de la ciberseguridad y pentesting profesional.</p>
+                        <div class="card-footer">
+                            <span class="instructor">AcademyC Exclusive</span>
+                            <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-plus"></i></a>
                         </div>
-                    </article>
-                </a>
-            </section>
-            <br>
-            <h1>Más Cursos</h1>
-            <aside id="infoadicionalclic">
-                <a href="cursos.html"><h1><u>Ver todos los cursos</u></h1></a>
-            </aside>
-            <section id="cursosprincipales">
-                <a href="miembro.html">
-                    <article>
-                        <p>Introducción Al Hacking Ético</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber</h3>
-                        <figure>
-                            <img src="../assets/introduccionhackingetico.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <aside id="infoadicional">
-                <p>+ de </p>
-                <h1>5000</h1>
-                <p>Alumnos</p>
-                <br>
-                <br>
-                <p>+ de </p>
-                <h1>200</h1>
-                <p>Horas de contenido</p>
-                <br>
-                <br>
-                <p>+ de </p>
-                <h1>30</h1>
-                <p>Cursos</p>
-            </aside>
-            <section id="cursosprincipales">
-                <a href="miembro.html">
-                    <article>
-                        <p>!Linux: de Noob a Pro en 9 horas!</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber</h3>
-                        <figure>
-                            <img src="../assets/Linuxdenoobapro.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <aside id="infoadicional">
-                <p> ↓↓↓ Proximos estrenos ↓↓↓</p>
-                <p>Agosto de locura!!!</p>
-            </aside>
-            <aside id="infoadicionalproximoscursos">
-                <article>
-                    <figure>
-                        <img src="../assets/fundamentoshtmlcssjs.jpg">
-                    </figure>
-                    <p>Fundamentos de HTML, CSS y JAVASCRIPT</p>
-                    <h4>Lucas SoyDalto </h4>
-                    <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                    <h4>Youtuber</h4>
+                    </div>
                 </article>
-            </aside>
-            <section id="cursosprincipales">
-                <a href="miembro.html">
-                    <article>
-                        <p>La Biblia del Montaje de PC</p>
-                        <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                        <h3>Youtuber</h3>
-                        <figure>
-                            <img src="../assets/labibliadelmontajedepc.jpg">
-                            <div class="course-card__tag">
-                                <img src="https://cdn-themes.thinkific.com/220744/355269/xuDKHHDLTbOjZzxYtKLK_category__software.svg" class="category-icon"> software 
-                            </div> 
-                        </figure>
-                    </article>
-                </a>
-            </section>
-            <aside id="infoadicionalproximoscursos">
-                <article>
-                    <figure>
-                        <img src="../assets/nosql.jpg">
-                    </figure>
-                    <p>Guía Completa de bases de datos NoSQL con MongoDB y NodeJS</p>
-                    <h4>BettaTech (Martín) </h4>
-                    <p><img src="../assets/youtube.ico" alt="" height="20px" width="20px"></p>
-                    <h4>Youtuber</h4>
+                <article class="course-card">
+                    <div class="card-img"><img src="assets/img/Linuxdenoobapro.jpg" alt="Linux"></div>
+                    <div class="card-body">
+                        <span class="card-tag">Sistemas</span>
+                        <h3>Linux: De Noob a Pro</h3>
+                        <p>Domina la terminal y administración de servidores en 9 horas.</p>
+                        <div class="card-footer">
+                            <span class="instructor">AcademyC Exclusive</span>
+                            <a href="detalles-curso.html?curso=hacking" class="btn-icon"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
                 </article>
-            </aside>
-        </div>        
+            </div>
+        </section>
+
+        <!-- Newsletter / CTA -->
+        <section class="cta-section auth-only-hidden">
+            <div class="cta-card">
+                <h2>¿Listo para empezar tu carrera?</h2>
+                <p>Únete a miles de alumnos y accede a contenido exclusivo cada semana.</p>
+                <a href="registrarse.html" class="btn btn-white">Registrarme ahora</a>
+            </div>
+        </section>
     </main>
-    <footer class="footer" id="footer">
-        <div class="container" id="container">
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>AcademyC</h3>
+                <p>Plataforma líder en educación tecnológica independiente. Formamos los expertos del mañana.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/ieharo1"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="precios.html">Planes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="politica.html">Privacidad</a></li>
+                    <li><a href="#">Términos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><strong>Isaac Esteban Haro Torres</strong></p>
+                <p>zackharo1@gmail.com</p>
+                <p>098805517</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 AcademyC - Desarrollado por Isaac Esteban Haro Torres. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!--SCRIPT MENU-->
-    <script src="../assets/index.js"></script>
-    <script src="../assets/script.js"></script>
-    <script src="../assets/particles.js"></script>
-    <script src="../assets/app.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/particles.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
+
